@@ -4,14 +4,15 @@
   "description": "Boilerplate using parcel as bundler for Electron apps.",
   "main": "main.js",
   "scripts": {
-    "dev": "parcel ./src/index.html -d build/",
-    "start-dev": "electron . --start-dev",
+    "dev": "concurrently --kill-others \"npm run parcel-dev\" \"npm run electron-dev\"",
+    "parcel-dev": "parcel ./src/index.html -d build/",
+    "electron-dev": "electron . --start-dev",
     "start": "electron .",
-    "build": "rm -rf build/ && parcel build ./src/index.html -d build/ --public-url ./ && cp assets/icon.ico build/icon.ico",
-    "pack": "electron-builder --dir",
-    "dist": "electron-builder",
-    "postinstall": "electron-builder install-app-deps",
-    "omni-dist": "npm run build && npm run dist && npm run postinstall"
+    "parcel-build": "rm -rf build/ && parcel build ./src/index.html -d build/ --public-url ./ && cp assets/icon.ico build/icon.ico",
+    "electron-pack": "electron-builder --dir",
+    "electron-dist": "electron-builder",
+    "electron-postinstall": "electron-builder install-app-deps",
+    "dist": "npm run parcel-build && npm run electron-dist && npm run electron-postinstall"
   },
   "author": "Aimeri Baddouh <aimeri@baddouh.me>",
   "build": {
