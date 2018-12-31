@@ -11,7 +11,7 @@
     "pack": "electron-builder --dir",
     "dist": "electron-builder",
     "postinstall": "electron-builder install-app-deps",
-    "omni-dist" : "npm run build && npm run dist && npm run postinstall"
+    "omni-dist": "npm run build && npm run dist && npm run postinstall"
   },
   "author": "Aimeri Baddouh <aimeri@baddouh.me>",
   "build": {
@@ -40,7 +40,6 @@
       "target": "msi",
       "icon": "build/icon.ico"
     },
-
     "files": [
       "main.js",
       "build/*"
@@ -60,6 +59,7 @@
     "@babel/core": "^7.2.2",
     "@babel/preset-env": "^7.2.3",
     "@babel/preset-react": "^7.0.0",
+    "concurrently": "^4.1.0",
     "electron": "^4.0.0",
     "electron-builder": "^20.38.4",
     "electron-reload": "^1.4.0",
