@@ -7,14 +7,15 @@
     "dev": "parcel ./src/index.html -d build/",
     "start-dev": "electron . --start-dev",
     "start": "electron .",
-    "build": "parcel build ./src/index.html -d build/ --public-url ./",
+    "build": "rm -rf build/ && parcel build ./src/index.html -d build/ --public-url ./ && cp assets/icon.ico build/icon.ico",
     "pack": "electron-builder --dir",
     "dist": "electron-builder",
-    "postinstall": "electron-builder install-app-deps"
+    "postinstall": "electron-builder install-app-deps",
+    "omni-dist" : "npm run build && npm run dist && npm run postinstall"
   },
+  "author": "Aimeri Baddouh <aimeri@baddouh.me>",
   "build": {
     "appId": "com.some.electron.quickstart",
-    "category": "your.app.category.type",
     "dmg": {
       "contents": [
         {
@@ -36,7 +37,7 @@
       ]
     },
     "win": {
-      "target": "squirrel",
+      "target": "msi",
       "icon": "build/icon.ico"
     },
 
