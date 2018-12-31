@@ -4,7 +4,7 @@
   "description": "Boilerplate using parcel as bundler for Electron apps.",
   "main": "main.js",
   "scripts": {
-    "dev": "concurrently --kill-others \"npm run parcel-dev\" \"npm run electron-dev\"",
+    "dev": "concurrently --kill-others --success first \"npm run parcel-dev\" \"npm run electron-dev\"",
     "parcel-dev": "parcel ./src/index.html -d build/",
     "electron-dev": "electron . --start-dev",
     "start": "electron .",
